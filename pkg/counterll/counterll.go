@@ -8,8 +8,12 @@ type node struct {
 }
 
 func Count(pp []int) int {
-	cnt := 0
 	n := toLL(pp)
+	return count(n)
+}
+
+func count(n *node) int {
+	cnt := 0
 	for n != nil {
 		n = iterate(n)
 		cnt++
@@ -56,6 +60,7 @@ func iterate(head *node) *node {
 				next = current.next
 			}
 		}
+
 		seatNum--
 		if seatNum < 1 {
 			break
