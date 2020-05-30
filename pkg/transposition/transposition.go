@@ -1,16 +1,16 @@
-package sequence
+package transposition
 
 import (
 	"sort"
 )
 
-type sequence struct {
+type transposition struct {
 	positions []int
 	step      int
 	total     int
 }
 
-func NewFromSlice(pp []int) *sequence {
+func NewFromSlice(pp []int) *transposition {
 	sort.Slice(pp, func(i, j int) bool {
 		return pp[i] < pp[j]
 	})
@@ -20,11 +20,11 @@ func NewFromSlice(pp []int) *sequence {
 		total *= i
 	}
 
-	return NewSequence(pp, total)
+	return NewTransposition(pp, total)
 }
 
-func NewSequence(pp []int, total int) *sequence {
-	return &sequence{
+func NewTransposition(pp []int, total int) *transposition {
+	return &transposition{
 		positions: pp,
 		total:     total,
 		step:      0,

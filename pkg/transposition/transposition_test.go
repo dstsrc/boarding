@@ -1,4 +1,4 @@
-package sequence
+package transposition
 
 import (
 	"reflect"
@@ -12,14 +12,14 @@ func TestNewFromSlice(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *sequence
+		want *transposition
 	}{
 		{
-			name: "seq",
+			name: "transposition",
 			args: args{
 				pp: []int{6, 5, 3, 1, 2, 4, 8, 7, 9},
 			},
-			want: &sequence{
+			want: &transposition{
 				total:     362880,
 				step:      0,
 				positions: []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
