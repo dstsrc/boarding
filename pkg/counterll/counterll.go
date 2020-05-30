@@ -17,6 +17,9 @@ func arrToArr(pp []int) []int {
 }
 
 func iterate(head *node) *node {
+	if head == nil {
+		return nil
+	}
 	seatNum := head.value
 	current := head
 	next := head.next
@@ -35,7 +38,9 @@ func iterate(head *node) *node {
 				prev.next = next
 			}
 			current = next
-			next = current.next
+			if current != nil {
+				next = current.next
+			}
 			if !set {
 				head = current
 			}
@@ -46,9 +51,9 @@ func iterate(head *node) *node {
 				next = current.next
 			}
 		}
-		pprint(head)
-		fmt.Println()
-		fmt.Println(seatNum)
+		//pprint(head)
+		//fmt.Println()
+		//fmt.Println(seatNum)
 		seatNum--
 		if seatNum < 1 {
 			break

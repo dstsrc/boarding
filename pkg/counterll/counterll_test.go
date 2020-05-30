@@ -108,11 +108,95 @@ func Test_arrToArr(t *testing.T) {
 			want: []int{5, 8, 3, 7, 2, 6},
 		},
 		{
-			name: "first iter",
+			name: "second iter",
 			args: args{
 				[]int{5, 8, 3, 7, 2, 6},
 			},
 			want: []int{5, 8, 3, 7},
+		},
+		{
+			name: "3 iter",
+			args: args{
+				[]int{5, 8, 3, 7},
+			},
+			want: []int{5, 8},
+		},
+		{
+			name: "4 iter",
+			args: args{
+				[]int{5, 8},
+			},
+			want: []int{},
+		},
+		{
+			name: "5 iter",
+			args: args{
+				[]int{},
+			},
+			want: []int{},
+		},
+		{
+			name: "best case",
+			args: args{
+				[]int{1, 2, 3, 4, 5},
+			},
+			want: []int{},
+		},
+		{
+			name: "baddest case 1",
+			args: args{
+				[]int{3, 2, 1},
+			},
+			want: []int{3, 2},
+		},
+		{
+			name: "baddest case 2",
+			args: args{
+				[]int{3, 2},
+			},
+			want: []int{3},
+		},
+		{
+			name: "baddest case 3",
+			args: args{
+				[]int{3},
+			},
+			want: []int{},
+		},
+		{
+			name: "baddest case 4",
+			args: args{
+				[]int{},
+			},
+			want: []int{},
+		},
+		{
+			name: "test 1",
+			args: args{
+				[]int{2, 1, 4, 3},
+			},
+			want: []int{2, 4},
+		},
+		{
+			name: "test 2",
+			args: args{
+				[]int{2, 4},
+			},
+			want: []int{},
+		},
+		{
+			name: "test 3",
+			args: args{
+				[]int{3, 4, 1, 2},
+			},
+			want: []int{3, 4},
+		},
+		{
+			name: "test 4",
+			args: args{
+				[]int{3, 4},
+			},
+			want: []int{},
 		},
 	}
 	for _, tt := range tests {
