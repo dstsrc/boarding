@@ -10,6 +10,14 @@ type transposition struct {
 	total     int
 }
 
+func NewTransposition(pp []int, total int) *transposition {
+	return &transposition{
+		positions: pp,
+		total:     total,
+		step:      0,
+	}
+}
+
 func NewFromSlice(pp []int) *transposition {
 	sort.Slice(pp, func(i, j int) bool {
 		return pp[i] < pp[j]
@@ -21,14 +29,6 @@ func NewFromSlice(pp []int) *transposition {
 	}
 
 	return NewTransposition(pp, total)
-}
-
-func NewTransposition(pp []int, total int) *transposition {
-	return &transposition{
-		positions: pp,
-		total:     total,
-		step:      0,
-	}
 }
 
 func next(ss []int) ([]int, bool) {
