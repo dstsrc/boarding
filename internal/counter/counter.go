@@ -36,14 +36,14 @@ func iterate(pp []int) ([]int, bool) {
 			break
 		}
 		if i == 0 {
-			return pp, true
+			return pp[:0], true
 		}
 	}
-
+	stop := index + 1
 	seatNum := pp[index]
 	for seatNum > 0 {
 		if index == -1 || seatNum == -1 {
-			return pp, false
+			return pp[:stop], false
 		}
 		if pp[index] != 0 {
 			if pp[index] <= seatNum {
@@ -54,5 +54,5 @@ func iterate(pp []int) ([]int, bool) {
 		}
 		index--
 	}
-	return pp, false
+	return pp[:stop], false
 }

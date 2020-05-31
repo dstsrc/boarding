@@ -29,23 +29,23 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{5, 8, 3, 7, 2, 0, 6, 0},
 			},
-			want:  []int{5, 8, 3, 7, 0, 0, 0, 0},
+			want:  []int{5, 8, 3, 7, 0, 0, 0},
 			want1: false,
 		},
 		{
 			name: "3 iter",
 			args: args{
-				[]int{5, 8, 3, 7, 0, 0, 0, 0},
+				[]int{5, 8, 3, 7, 0, 0, 0},
 			},
-			want:  []int{5, 8, 0, 0, 0, 0, 0, 0},
+			want:  []int{5, 8, 0, 0},
 			want1: false,
 		},
 		{
 			name: "4 iter",
 			args: args{
-				[]int{5, 8, 0, 0, 0, 0, 0, 0},
+				[]int{5, 8, 0, 0},
 			},
-			want:  []int{0, 0, 0, 0, 0, 0, 0, 0},
+			want:  []int{0, 0},
 			want1: false,
 		},
 		{
@@ -53,7 +53,7 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{0, 0, 0, 0, 0, 0, 0, 0},
 			},
-			want:  []int{0, 0, 0, 0, 0, 0, 0, 0},
+			want:  []int{},
 			want1: true,
 		},
 		{
@@ -77,23 +77,23 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{3, 2, 0},
 			},
-			want:  []int{3, 0, 0},
+			want:  []int{3, 0},
 			want1: false,
 		},
 		{
 			name: "baddest case 3",
 			args: args{
-				[]int{3, 0, 0},
+				[]int{3, 0},
 			},
-			want:  []int{0, 0, 0},
+			want:  []int{0},
 			want1: false,
 		},
 		{
 			name: "baddest case 4",
 			args: args{
-				[]int{0, 0, 0},
+				[]int{0},
 			},
-			want:  []int{0, 0, 0},
+			want:  []int{},
 			want1: true,
 		},
 		{
@@ -109,7 +109,7 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{2, 0, 4, 0},
 			},
-			want:  []int{0, 0, 0, 0},
+			want:  []int{0, 0, 0},
 			want1: false,
 		},
 		{
@@ -125,7 +125,7 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{3, 4, 0, 0},
 			},
-			want:  []int{0, 0, 0, 0},
+			want:  []int{0, 0},
 			want1: false,
 		},
 		{
@@ -141,15 +141,15 @@ func Test_iterate(t *testing.T) {
 			args: args{
 				[]int{4, 1, 5, 3, 0},
 			},
-			want:  []int{4, 0, 5, 0, 0},
+			want:  []int{4, 0, 5, 0},
 			want1: false,
 		},
 		{
 			name: "test 7",
 			args: args{
-				[]int{4, 0, 5, 0, 0},
+				[]int{4, 0, 5, 0},
 			},
-			want:  []int{0, 0, 0, 0, 0},
+			want:  []int{0, 0, 0},
 			want1: false,
 		},
 	}
