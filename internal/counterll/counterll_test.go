@@ -198,6 +198,27 @@ func Test_arrToArr(t *testing.T) {
 			},
 			want: []int{},
 		},
+		{
+			name: "test 5",
+			args: args{
+				[]int{4, 1, 5, 3, 2},
+			},
+			want: []int{4, 1, 5, 3},
+		},
+		{
+			name: "test 6",
+			args: args{
+				[]int{4, 1, 5, 3},
+			},
+			want: []int{4, 5},
+		},
+		{
+			name: "test 7",
+			args: args{
+				[]int{4, 5},
+			},
+			want: []int{},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

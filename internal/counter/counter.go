@@ -45,13 +45,14 @@ func iterate(pp []int) ([]int, bool) {
 		if index == -1 || seatNum == -1 {
 			return pp, false
 		}
-
-		if pp[index] <= seatNum && pp[index] != 0 {
-			seatNum = pp[index]
-			pp[index] = 0
+		if pp[index] != 0 {
+			if pp[index] <= seatNum {
+				seatNum = pp[index]
+				pp[index] = 0
+			}
+			seatNum--
 		}
 		index--
-		seatNum--
 	}
 	return pp, false
 }

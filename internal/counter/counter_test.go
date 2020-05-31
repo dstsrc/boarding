@@ -128,6 +128,30 @@ func Test_iterate(t *testing.T) {
 			want:  []int{0, 0, 0, 0},
 			want1: false,
 		},
+		{
+			name: "test 5",
+			args: args{
+				[]int{4, 1, 5, 3, 2},
+			},
+			want:  []int{4, 1, 5, 3, 0},
+			want1: false,
+		},
+		{
+			name: "test 6",
+			args: args{
+				[]int{4, 1, 5, 3, 0},
+			},
+			want:  []int{4, 0, 5, 0, 0},
+			want1: false,
+		},
+		{
+			name: "test 7",
+			args: args{
+				[]int{4, 0, 5, 0, 0},
+			},
+			want:  []int{0, 0, 0, 0, 0},
+			want1: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

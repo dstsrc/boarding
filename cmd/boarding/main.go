@@ -3,18 +3,27 @@ package main
 import (
 	"fmt"
 
-	"github.com/dstsrc/boarding/internal/counter"
-
 	"github.com/dstsrc/boarding/internal/boarding"
 
+	"github.com/dstsrc/boarding/internal/counter"
+	"github.com/dstsrc/boarding/internal/counterll"
 	"github.com/dstsrc/boarding/internal/transposition"
 )
 
 func main() {
-	t := transposition.New()
-	c := counter.New()
-	b := boarding.New(t, c)
+	n := 10
 
-	avg := b.GetAVGTime(10)
-	fmt.Print(avg)
+	t1 := transposition.New()
+	c1 := counterll.New()
+	b1 := boarding.New(t1, c1)
+
+	avg1 := b1.GetAVGTime(n)
+	fmt.Println(avg1)
+
+	t2 := transposition.New()
+	c2 := counter.New()
+	b2 := boarding.New(t2, c2)
+
+	avg2 := b2.GetAVGTime(n)
+	fmt.Println(avg2)
 }
