@@ -5,31 +5,33 @@ import (
 	"testing"
 )
 
-func TestNewFromSlice(t *testing.T) {
+func Test_getInitParams(t *testing.T) {
 	type args struct {
 		pp []int
 	}
 	tests := []struct {
-		name string
-		args args
-		want *transposition
+		name  string
+		args  args
+		want  []int
+		want1 int
 	}{
 		{
 			name: "transposition",
 			args: args{
 				pp: []int{6, 5, 3, 1, 2, 4, 8, 7, 9},
 			},
-			want: &transposition{
-				total:     362880,
-				step:      0,
-				positions: []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
-			},
+			want:  []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
+			want1: 362880,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewFromSlice(tt.args.pp); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewFromSlice() = %v, want %v", got, tt.want)
+			got, got1 := getInitParams(tt.args.pp)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("getInitParams() got = %v, want %v", got, tt.want)
+			}
+			if got1 != tt.want1 {
+				t.Errorf("getInitParams() got1 = %v, want %v", got1, tt.want1)
 			}
 		})
 	}
@@ -155,6 +157,12 @@ func Test_next(t *testing.T) {
 		{
 			name:  "3-6",
 			args:  args{[]int{3, 2, 1}},
+			want:  nil,
+			want1: true,
+		},
+		{
+			name:  "single",
+			args:  args{[]int{1}},
 			want:  nil,
 			want1: true,
 		},

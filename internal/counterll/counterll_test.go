@@ -208,7 +208,7 @@ func Test_arrToArr(t *testing.T) {
 	}
 }
 
-func TestCount(t *testing.T) {
+func TestCountSlice(t *testing.T) {
 	type args struct {
 		pp []int
 	}
@@ -276,19 +276,19 @@ func TestCount(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Count(tt.args.pp); got != tt.want {
-				t.Errorf("Count() = %v, want %v", got, tt.want)
+			if got := countSlice(tt.args.pp); got != tt.want {
+				t.Errorf("countSlice() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func BenchmarkCount(b *testing.B) {
+func BenchmarkCountSlice(b *testing.B) {
 	pp := []int{19, 21, 1, 7, 20, 4, 13, 9, 12, 2, 14, 5, 6, 11, 15, 8, 16, 10, 18, 3, 17}
 	b.ReportAllocs()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		Count(pp)
+		countSlice(pp)
 	}
 }
 
@@ -297,7 +297,7 @@ func BenchmarkCountLL1(b *testing.B) {
 	b.ReportAllocs()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		count(n)
+		countLL(n)
 	}
 }
 
@@ -306,6 +306,6 @@ func BenchmarkCountLL2(b *testing.B) {
 	b.ReportAllocs()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		count(n)
+		countLL(n)
 	}
 }

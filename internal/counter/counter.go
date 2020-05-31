@@ -1,6 +1,18 @@
 package counter
 
-func Count(pp []int) int {
+type counter struct{}
+
+func New() *counter {
+	return &counter{}
+}
+
+func (c *counter) Count(pp []int) int {
+	cp := make([]int, len(pp))
+	copy(cp, pp)
+	return countSlice(cp)
+}
+
+func countSlice(pp []int) int {
 	if len(pp) == 0 {
 		return 0
 	}

@@ -7,12 +7,22 @@ type node struct {
 	value int
 }
 
-func Count(pp []int) int {
-	n := toLL(pp)
-	return count(n)
+type counter struct{}
+
+func New() *counter {
+	return &counter{}
 }
 
-func count(n *node) int {
+func (c *counter) Count(pp []int) int {
+	return countSlice(pp)
+}
+
+func countSlice(pp []int) int {
+	n := toLL(pp)
+	return countLL(n)
+}
+
+func countLL(n *node) int {
 	cnt := 0
 	for n != nil {
 		n = iterate(n)

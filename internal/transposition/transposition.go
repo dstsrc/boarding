@@ -6,19 +6,30 @@ import (
 
 type transposition struct {
 	positions []int
-	step      int
 	total     int
 }
 
-func NewTransposition(pp []int, total int) *transposition {
-	return &transposition{
-		positions: pp,
-		total:     total,
-		step:      0,
-	}
+func New() *transposition {
+	return &transposition{}
 }
 
-func NewFromSlice(pp []int) *transposition {
+func (t *transposition) Next() ([]int, bool) {
+	pp, done := next(t.positions)
+	t.positions = pp
+	if done {
+		return nil, true
+	}
+	return pp, false
+}
+
+func (t *transposition) Init(pos []int) []int {
+	pp, total := getInitParams(pos)
+	t.positions = pp
+	t.total = total
+	return pp
+}
+
+func getInitParams(pp []int) ([]int, int) {
 	sort.Slice(pp, func(i, j int) bool {
 		return pp[i] < pp[j]
 	})
@@ -28,7 +39,7 @@ func NewFromSlice(pp []int) *transposition {
 		total *= i
 	}
 
-	return NewTransposition(pp, total)
+	return pp, total
 }
 
 func next(ss []int) ([]int, bool) {
