@@ -313,13 +313,22 @@ func BenchmarkCountSlice(b *testing.B) {
 	}
 }
 
+// to evaluate performance, I compare conversion and count with conversion
+// StartTimer StopTimer does not work due to light load
 func BenchmarkCountLL1(b *testing.B) {
-	b.ReportAllocs()
-	for i := 0; i < b.N; i++ {
-		n := toLL([]int{19, 21, 1, 7, 20, 4, 13, 9, 12, 2, 14, 5, 6, 11, 15, 8, 16, 10, 18, 3, 17})
-		countLL(n)
+	b.Run("conversion", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			toLL([]int{19, 21, 1, 7, 20, 4, 13, 9, 12, 2, 14, 5, 6, 11, 15, 8, 16, 10, 18, 3, 17})
 
-	}
+		}
+	})
+	b.Run("count with conversion", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			countLL(toLL([]int{19, 21, 1, 7, 20, 4, 13, 9, 12, 2, 14, 5, 6, 11, 15, 8, 16, 10, 18, 3, 17}))
+		}
+	})
 }
 
 func BenchmarkCountLL2(b *testing.B) {
