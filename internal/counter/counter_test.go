@@ -64,7 +64,7 @@ func Test_iterate(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 1",
+			name: "worst case 1",
 			args: args{
 				[]int{3, 2, 1},
 			},
@@ -72,7 +72,7 @@ func Test_iterate(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 2",
+			name: "worst case 2",
 			args: args{
 				[]int{3, 2, 0},
 			},
@@ -80,7 +80,7 @@ func Test_iterate(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 3",
+			name: "worst case 3",
 			args: args{
 				[]int{3, 0},
 			},
@@ -88,7 +88,7 @@ func Test_iterate(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 4",
+			name: "worst case 4",
 			args: args{
 				[]int{0},
 			},
@@ -224,7 +224,7 @@ func Test_iterateV2(t *testing.T) {
 			want1: true,
 		},
 		{
-			name: "baddest case 1",
+			name: "worst case 1",
 			args: args{
 				[]int{3, 2, 1},
 			},
@@ -232,7 +232,7 @@ func Test_iterateV2(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 2",
+			name: "worst case 2",
 			args: args{
 				[]int{3, 2},
 			},
@@ -240,7 +240,7 @@ func Test_iterateV2(t *testing.T) {
 			want1: false,
 		},
 		{
-			name: "baddest case 3",
+			name: "worst case 3",
 			args: args{
 				[]int{3},
 			},
@@ -248,7 +248,7 @@ func Test_iterateV2(t *testing.T) {
 			want1: true,
 		},
 		{
-			name: "baddest case 4",
+			name: "worst case 4",
 			args: args{
 				[]int{},
 			},
@@ -350,7 +350,7 @@ func TestCountSlice(t *testing.T) {
 			want: 1,
 		},
 		{
-			name: "baddest",
+			name: "worst case",
 			args: args{
 				[]int{6, 5, 4, 3, 2, 1},
 			},

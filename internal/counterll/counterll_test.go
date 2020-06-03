@@ -143,28 +143,28 @@ func Test_arrToArr(t *testing.T) {
 			want: []int{},
 		},
 		{
-			name: "baddest case 1",
+			name: "worst case 1",
 			args: args{
 				[]int{3, 2, 1},
 			},
 			want: []int{3, 2},
 		},
 		{
-			name: "baddest case 2",
+			name: "worst case 2",
 			args: args{
 				[]int{3, 2},
 			},
 			want: []int{3},
 		},
 		{
-			name: "baddest case 3",
+			name: "worst case 3",
 			args: args{
 				[]int{3},
 			},
 			want: []int{},
 		},
 		{
-			name: "baddest case 4",
+			name: "worst case 4",
 			args: args{
 				[]int{},
 			},
@@ -246,7 +246,7 @@ func TestCountSlice(t *testing.T) {
 			want: 1,
 		},
 		{
-			name: "baddest",
+			name: "worst case",
 			args: args{
 				[]int{6, 5, 4, 3, 2, 1},
 			},
