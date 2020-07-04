@@ -1,7 +1,5 @@
 package boarding
 
-import "fmt"
-
 type Counter interface {
 	Count(pp []int) int
 }
@@ -47,6 +45,5 @@ func (b *boarding) GetAVGTime(n int) float64 {
 		states++
 		time += t
 	}
-	fmt.Println("t-", time, " s-", states)
 	return float64(time) / float64(states)
 }
