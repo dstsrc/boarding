@@ -13,6 +13,7 @@ func New() *counter {
 	return &counter{}
 }
 
+// Count return the number of iterations for which everyone is sitting
 func (c *counter) Count(pp []int) int {
 	return countSlice(pp)
 }
@@ -31,6 +32,7 @@ func countLL(n *node) int {
 	return cnt
 }
 
+// arrToArr for simplify the test
 func arrToArr(pp []int) []int {
 	return fromLL(iterate(toLL(pp)))
 }

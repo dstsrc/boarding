@@ -24,6 +24,7 @@ func New(c Counter) *mdl {
 	return &mdl{counter: c}
 }
 
+// GetAVGTime returns the average time for a queue of length n, counts some random states
 func (m *mdl) GetAVGTime(n int) float64 {
 	s := make([]int, n)
 	for i := range s {

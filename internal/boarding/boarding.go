@@ -21,6 +21,7 @@ func New(t Transposition, c Counter) *boarding {
 	}
 }
 
+// GetAVGTime returns the average time for a queue of length n, considers all states
 func (b *boarding) GetAVGTime(n int) float64 {
 	pp := make([]int, 0)
 	for i := 1; i <= n; i++ {

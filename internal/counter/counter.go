@@ -6,6 +6,7 @@ func New() *counter {
 	return &counter{}
 }
 
+// Count return the number of iterations for which everyone is sitting
 func (c *counter) Count(pp []int) int {
 	cp := make([]int, len(pp))
 	copy(cp, pp)

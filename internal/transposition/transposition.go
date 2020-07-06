@@ -13,6 +13,7 @@ func New() *transposition {
 	return &transposition{}
 }
 
+// Next return next transposition and completion mark
 func (t *transposition) Next() ([]int, bool) {
 	pp, done := next(t.positions)
 	t.positions = pp
@@ -22,6 +23,7 @@ func (t *transposition) Next() ([]int, bool) {
 	return pp, false
 }
 
+// Init return init params
 func (t *transposition) Init(pos []int) []int {
 	pp, total := getInitParams(pos)
 	t.positions = pp
